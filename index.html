@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adicionei esta tag para atualizar a página a cada 24 horas -->
+    <meta http-equiv="refresh" content="86400">
+    <title>Frases</title>
+    <!-- Adicionei este link para a fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400&display=swap" rel="stylesheet">
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            /* Especifiquei a fonte e o peso para Poppins Black 900 */
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            /* Adicionei esta propriedade para criar uma sombra nas bordas */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            /* Adicionei esta propriedade para arredondar as bordas */
+            border-radius: 10px;
+            /* Adicionei estas propriedades para alinhar o texto ao meio e ao centro */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+}
+    
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"Sempre parece impossível até ser feito. - Nelson Mandela",
+"A aceitação do que aconteceu é o primeiro passo para superar as consequências de qualquer infortúnio. - William James",
+"Não importa o quão devagar você vá, desde que não pare. - Confúcio",
+"Aquele que não quer enfrentar seus desafios sempre enfrentará desafios! - Ernest Agyemang Yeboah",
+"Somente aqueles que correm o risco de ir longe demais podem descobrir até onde alguém pode ir. - T.S. Eliot",
+"Minha atitude é que, se você me empurrar para algo que considera uma fraqueza, eu transformarei aquilo que é entendido como em força. - Michael Jordan",
+"Obstáculos são aquelas coisas terríveis que vemos quando tiramos os olhos do nosso objetivo. - Henry Ford",
+"E guardemos a certeza pelas próprias dificuldades já superadas que não há mal que dure para sempre. - Chico Xavier ",
+"Nossa maior fraqueza está em desistir. O caminho mais certo de vencer é tentar mais uma vez. - Thomas Edison",
+"A vida é 10% o que acontece com você e 90% como você reage a isso. - Charles R. Swindoll",
+"Em qualquer momento de decisão, a melhor coisa que você pode fazer é a certa, a próxima melhor coisa é a coisa errada e a pior coisa que você pode fazer é nada. - Theodore Roosevelt",
+"Quando algo é importante o suficiente, você realiza, mesmo que as chances não estejam a seu favor. - Elon Musk",
+"Quem conquista o mar hoje está pronto para conquistar o oceano amanhã. - Matshona Dhliwayo",
+"O rio atinge seus objetivos, porque aprendeu a contornar os obstáculos. - Lao Tsé",
+"Não há nada melhor que adversidade. Toda derrota, todo desgosto, toda perda contém sua própria semente, sua própria lição sobre como melhorar seu desempenho na próxima vez. - Malcolm X",
+"Você pode encontrar muitas derrotas, mas não deve ser derrotado. De fato, pode ser necessário encontrar as derrotas para que você possa saber quem é, do que pode subir, como ainda pode sair disso. - Maya Angelou",
+"A autoconfiança é o primeiro segredo do sucesso. - Ralph Waldo Emerson",
+"O fracasso é apenas a oportunidade de recomeçar de uma forma mais inteligente. - Henry Ford",
+"Desafios são o que fazem a vida interessante e superá-los é o que torna a vida com significado. - Joshua J. Marine",
+"Se você pode sonhar, você pode fazer. - Walt Disney",
+"Acredite que você pode e você já está no meio do caminho. - Theodore Roosevelt",
+"Transforme suas feridas em sabedoria. - Oprah Winfrey",
+"Imagine uma nova história para sua vida e acredite nela. - Paulo Coelho",
+"O sucesso tem uma fórmula simples: dê o seu melhor e as pessoas podem gostar. - Dave Brubeck",
+"Ganhar tempo é ganhar dinheiro. - Autor desconhecido",
+"O único lugar onde o sucesso vem antes do trabalho é no dicionário. - Albert Einstein",
+"O sucesso é alcançado e mantido por aqueles que não desistem. - Autor desconhecido",
+"Insista, persista e jamais desista daquilo que faz seus olhos brilharem! - Autor desconhecido",
+"O sucesso é ir de fracasso em fracasso sem perder o entusiasmo. - Winston Churchill",
+"O sucesso é a soma de pequenos esforços repetidos dia após dia. - Robert Collier",
+"O sucesso não é definitivo, o fracasso não é fatal: é a coragem para continuar que conta. - Winston Churchill",
+"O segredo do sucesso é a constância no objetivo. - Benjamin Disraeli",
+"O sucesso não é algo que acontece de repente. É um processo gradual. Você vai falhar e aprender, e então falhar e aprender mais. - Nick Woodman",
+"O sucesso é conseguir o que você quer. Felicidade é querer o que você consegue. - Dale Carnegie",
+"O sucesso normalmente vem para quem está ocupado demais para procurar por ele. - Henry David Thoreau",
+"Não deixe que o medo de errar impeça você de jogar o jogo. - A Cinderella Story",
+"Não importa o quão talentoso você seja, seu talento vai falhar se você não for hábil. Se você não estudar, se não trabalhar duro, se não se dedicar a ser melhor a cada dia. - Will Smith",
+"A motivação é o que faz você começar. Hábito é o que faz você continuar. - Jim Ryun",
+"A motivação é a arte de fazer as pessoas fazerem o que você quer que elas façam porque elas querem fazer. - Dwight D. Eisenhower",
+"A motivação vem de trabalhar em coisas que nos importam. - Sheryl Sandberg",
+"A motivação é simples: você elimina aqueles que não estão motivados. - Lou Holtz",
+"A motivação é tudo. Você pode fazer o trabalho de duas pessoas, mas não pode ser duas pessoas. Em vez disso, você tem que inspirar a próxima pessoa a trabalhar com você. - Rita Mae Brown",
+"A motivação é um fogo interno. Se alguém tenta acender esse fogo embaixo de você, as chances são de que ele vai queimar muito brevemente. - Stephen R. Covey",
+"A motivação é aquilo que te inicia. Hábito é aquilo que te mantém indo. - Jim Ryun",
+"A motivação sozinha não basta. Se você tem um idiota e o motiva, agora você tem um idiota motivado. - Jim Rohn",
+"Não espere por uma crise para descobrir o que é importante em sua vida. - Platão",
+"Não há nada como um sonho para criar o futuro. - Victor Hugo",
+"Não há caminho para a felicidade: a felicidade é o caminho. - Mahatma Gandhi",
+"Não há nada permanente exceto a mudança. - Heráclito",
+"Não há ventos favoráveis para quem não sabe aonde ir. - Sêneca",
+"Não se pode ensinar nada a um homem; só é possível ajudá-lo a encontrar a coisa dentro de si. - Galileu Galilei",
+"Não se pode viver verdadeiramente e desistir do que dá significado e propósito à uma vida inteira. - Abraham Lincoln",
+"Não se trata do quão forte você bate, mas sim do quão forte pode ser atingido e continuar seguindo em frente; do quanto pode suportar e seguir em frente; É assim que se ganha! - Rocky Balboa",
+"Não siga os caminhos já estabelecidos; vá por onde ninguém foi ainda e deixe sua marca! - Autor desconhecido",
+"Não tenha medo de desistir do bom para perseguir o ótimo! - John D.Rockefeller Jr.",
+"Não viva para que a sua presença seja notada, mas para que a sua falta seja sentida. - Bob Marley",
+"Nossa maior glória não reside no fato de nunca cairmos, mas sim em levantarmo-nos sempre depois de cada queda. - Confúcio",
+"Nunca deixe que alguém te diga que não pode fazer algo. Nem mesmo eu. Se você tem um sonho, tem que protegê-lo. As pessoas que não podem fazer por si mesmas, dirão que você não consegue. Se quer alguma coisa, vá e lute por ela. Ponto final. - À Procura da Felicidade",
+"Nunca desista de um sonho só por causa do tempo que você vai levar para realizá-lo. O tempo vai passar de qualquer forma. - Earl Nightingale",
+"Nunca é tarde demais para ser aquilo que sempre se desejou ser. - George Eliot",
+"O caminho para o sucesso é tomar uma atitude determinada. - Autor desconhecido",
+"O importante não é o que se dá, mas o amor com que se dá. - Madre Teresa de Calcutá",
+"O mais importante da vida não é a situação em que estamos, mas a direção para a qual nos movemos. - Oliver Wendell Holmes",
+"O medo de perder tira a vontade de ganhar. - Wanderley Luxemburgo",
+"O pessimista vê dificuldade em cada oportunidade; o otimista vê oportunidade em cada dificuldade. - Winston Churchill",
+"O poder da imaginação nos faz infinitos. - John Muir",
+"O que importa não é o que acontece com você, mas como você reage ao que acontece com você. - Aldous Huxley",
+"O que nos parece uma provação amarga pode ser uma bênção disfarçada. - Oscar Wilde",
+"O segredo da felicidade é encontrar a nossa alegria na alegria dos outros. - Alexandre Herculano",
+"O sucesso é ir de fracasso em fracasso sem perder entusiasmo. - Winston Churchill",
+"Os obstáculos são aquelas coisas assustadoras que você vê quando desvia seus olhos do seu objetivo. - Henry Ford",
+"Os problemas são oportunidades para se mostrar o que sabe. - Duke Ellington",
+"Para ser insubstituível na vida, você precisa ser diferente. - Coco Chanel",
+"Para ter sucesso, seu desejo de sucesso deve ser maior do que seu medo do fracasso. - Bill Cosby",
+"Perder tempo em aprender coisas que não interessam, priva-nos de descobrir coisas interessantes. - Carlos Drummond de Andrade",
+"Quanto mais eu quero, mais eu posso. - Autor desconhecido",
+"Quem quer fazer algo encontra um meio, quem não quer fazer nada encontra uma desculpa. - Provérbio árabe",
+"Se você acha que pode ou se você acha que não pode, de qualquer forma você está certo. - Henry Ford",
+"Se você não está disposto a arriscar, esteja disposto a uma vida comum. - Jim Rohn",
+"Se você quer ser feliz, seja. - Leon Tolstói",
+"Seja a mudança que você quer ver no mundo. - Mahatma Gandhi",
+"Seja forte e corajoso! Não se apavore, nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar. - Josué 1:9",
+"Só existem dois dias no ano em que nada pode ser feito. Um se chama ontem e o outro se chama amanhã. Portanto hoje é o dia certo para amar, acreditar, fazer e principalmente viver. - Dalai Lama",
+"Sonhe como se fosse viver para sempre, viva como se fosse morrer amanhã. - James Dean",
+"Tente mover o mundo - o primeiro passo será mover a si mesmo. - Platão",
+"Tente não se tornar um homem de sucesso, mas sim tente se tornar um homem de valor. - Albert Einstein",
+"Todo progresso acontece fora da zona de conforto. - Michael John Bobak",
+"Você deve ser a mudança que deseja ver no mundo. - Mahatma Gandhi",
+"Você é do tamanho do seu sonho. - Fernando Pessoa",
+"Você é mais forte do que pensa e será mais feliz do que imagina. - Autor desconhecido",
+"Você é o único representante do seu sonho na face da terra. Se isso não fizer você correr atrás, o que vai? - Emicida",
+"Você não é derrotado quando perde. Você é derrotado quando desiste. - Autor desconhecido",
+"Você não pode mudar o vento, mas pode ajustar as velas do barco para chegar onde quer. - Confúcio",
+"Você só vive uma vez, mas se você fizer isso direito, uma vez é o suficiente. - Mae West",
+"Você tem que acordar cada manhã com determinação se você pretende ir para a cama com satisfação. - George Lorimer",
+];
+
+function dispalyQuote(){
+    // Gerei um índice aleatório para escolher uma citação
+    let index = Math.floor(Math.random() * quotes.length);
+    document.getElementById('widget').innerHTML =quotes[index];
+}
+
+dispalyQuote();
+
+</script>
+
+</body>
+</html>
